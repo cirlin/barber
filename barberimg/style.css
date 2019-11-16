@@ -1,0 +1,152 @@
+<!--/* -->
+var so="—“–¿Õ»÷¿ Œ‘Œ–ÃÀﬂ≈“—ﬂ";
+var sp='¬€ ”∆≈ Õ¿ —“–¿Õ»÷≈  "œ¿–» Ã¿’≈–— »≈ ”—À”√»"';
+function menuon(name)
+{
+document.getElementById(name).style.visibility="visible";
+setTimeout("menuoff()",15000);
+}
+function menuoff(name)
+{
+document.getElementById(name).style.visibility="hidden";
+}
+var adr,imager,sizer;
+adr=["galery/b1.jpg","galery/b2.jpg","galery/b3.jpg","galery/b4.jpg","galery/b5.jpg",
+"galery/b6.jpg","galery/b7.jpg","galery/b8.jpg",
+"galery/b9.jpg","galery/b10.jpg","galery/b11.jpg"];
+imager=["barber1","barber2","barber3","barber4","barber5","barber6","barber7","barber8","barber9","barber10","barber11"];
+sizer=[49,107,49,109,49,109,49,109,109,49,109];
+var long=11; 
+var t;  
+var clipl=55;
+var clipr=468;
+var lft;
+var i=0;
+var a,im;
+a=[adr[0],adr[1],adr[2],adr[3],adr[4],adr[5],"","adres/kgb.jpg","adres/rz.jpg"]; 
+im=[imager[0],imager[1],imager[2],imager[3],imager[4],imager[5]];
+function load(i)
+{ 
+for(var j=0;j<6;j++)
+   {
+a[j]=((i+j)>long-1)?adr[i+j-long]:adr[i+j];
+im[j]=((i+j)>long-1)?imager[i+j-long]:imager[i+j];
+   } 
+document.images["c1"].src="barberimg/"+im[0]+".jpg";
+document.images["c2"].src="barberimg/"+im[1]+".jpg";
+document.images["c3"].src="barberimg/"+im[2]+".jpg";
+document.images["c4"].src="barberimg/"+im[3]+".jpg";
+document.images["c5"].src="barberimg/"+im[4]+".jpg";
+document.images["c6"].src="barberimg/"+im[5]+".jpg";
+return 0;
+}
+var fl=true;
+function rol()
+{
+
+ if(fl)
+  {
+var spid=1;
+clipr-=spid;
+clipl-=spid;
+lft+=spid;
+if(clipl==0)
+    {
+i--;
+if(i<0)i=long-1;
+load(i);
+var k=sizer[i]+4;
+lft-=k;
+clipl=k;
+clipr+=k;
+    }
+var rct="rect("+"0px "+clipr+"px "+"79px "+clipl+ "px)";
+var lefter=lft+"px";
+var ob=document.getElementById("cinema");
+ob.style.clip=rct;
+ob.style.left=lefter;
+  }
+setTimeout("rol()",40);
+}
+function foto(num)
+{
+fotooff();
+var ob=document.images["fuck"];
+ob.src=a[num];
+ob.style.position="absolute"
+var l=document.body.clientWidth-800;
+ switch(num)
+      {
+case 0:
+case 1:
+case 2:
+case 3:
+case 4:
+case 5:
+  {
+ob.style.top="0";
+ob.style.left="0";
+t=setTimeout("fotooff()",12000);
+break;
+  } 
+case 6:
+  {
+var lf=(l>0)?l/2+71:71;
+var lefter=lf+"px";
+ob.style.top="502";
+ob.style.left=lefter;
+t=setTimeout("fotooff()",30000);
+break;
+  }
+case 7:
+case 8:
+  {
+var lf=(l>0)?l/2:0;
+var lefter=lf+"px";
+ob.style.top="54";
+ob.style.left=lefter;
+t=setTimeout("fotooff()",30000);
+break;
+  }
+      }
+ob.style.visibility="visible";
+}
+function fotooff()
+{
+ob=document.images["fuck"];
+ob.src="";
+ob.style.visibility="hidden";
+clearTimeout(t);
+}
+function stop()
+{
+fl=false;
+}
+
+function run()
+{
+fl=true;
+}
+function scur()
+{
+
+var l=document.body.clientWidth-800;
+lft=(l>0)?l/2+266:266;
+var lefter=lft+"px";
+var ob=document.getElementById("cinema");
+ob.style.left=lefter;
+document.getElementById("cinema").style.cursor="pointer"
+document.body.style.visibility="visible";
+}
+<!--*/ -->
+<!--body {VISIBILITY:hidden;MARGIN:0}-->
+<!--#main {BACKGROUND-IMAGE: url(bg.jpg); TABLE-LAYOUT:fixed; WIDTH:800; HEIGHT:1117; CELLSPASING:0; BORDER:0}-->
+<!--A.top {FONT-FAMILY: sans-serif; FONT-SIZE: 13px; COLOR: #FFFFFF; TEXT-DECORATION: none} -->
+
+<!--A.bottom:link {FONT-FAMILY: sans-serif; FONT-SIZE: 11px; COLOR: #FFFFFF; LINE-HEIGHT:15px; TEXT-DECORATION: none}--> 
+<!--A.bottom:active {FONT-FAMILY: sans-serif; FONT-SIZE: 11px; COLOR: #7A01414; LINE-HEIGHT:15px; TEXT-DECORATION: none}--> 
+<!--A.bottom:visited {FONT-FAMILY: sans-serif; FONT-SIZE: 11px; COLOR: #FFFFFF; LINE-HEIGHT:15px; TEXT-DECORATION: none}--> 
+<!--A.bottom:hover {FONT-FAMILY: sans-serif; FONT-SIZE: 11px; COLOR: #7a1414; LINE-HEIGHT:15px; TEXT-DECORATION: none}--> 
+<!--#fuck{visibility:hidden}-->
+<!--#cinema {POSITION:absolute; TOP:384px; CLIP: rect(0px 468px 79px 55px)}-->
+<!--#reserv {VISIBILITY:hidden}--> 
